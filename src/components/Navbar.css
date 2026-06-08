@@ -1,0 +1,150 @@
+.navbar {
+  background-color: var(--color-bg);
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-logo {
+  justify-self: start;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  /* Remove height restriction to let it grow */
+  padding: 10px 0;
+}
+
+.logo-img {
+  height: 180px; /* Make it massive, but fitting the visual flow */
+  max-height: 250px;
+  width: auto;
+  object-fit: contain;
+  margin-top: 40px; /* Push it slightly out of the navbar for a unique editorial look, or keep it inside */
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-item {
+  height: 120px;
+}
+
+.nav-links {
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1.5rem;
+  height: 100%;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links:hover {
+  color: var(--color-primary);
+}
+
+.nav-links.active {
+  color: var(--color-primary);
+}
+
+.nav-links.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 3px;
+  background-color: var(--color-primary);
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    height: 80px;
+  }
+
+  .nav-item {
+    height: 80px;
+  }
+
+  .logo-img {
+    height: 70px;
+    margin-top: 0;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: rgba(248, 245, 238, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .nav-item {
+    height: 10vh;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+  }
+
+  .nav-links.active::after {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-primary);
+    z-index: 20;
+    transition: transform 0.3s ease;
+  }
+
+  .menu-icon:hover {
+    transform: translate(-100%, 60%) scale(1.1);
+  }
+}

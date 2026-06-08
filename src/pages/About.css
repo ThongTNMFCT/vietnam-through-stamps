@@ -1,0 +1,42 @@
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.about-content {
+  padding: var(--spacing-lg);
+}
+
+.about-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-sm);
+}
+
+.text-large {
+  font-size: 1.25rem !important;
+  font-weight: 500;
+  color: var(--color-text) !important;
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.about-slogan h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}

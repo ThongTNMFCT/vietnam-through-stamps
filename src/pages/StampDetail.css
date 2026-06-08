@@ -1,0 +1,239 @@
+.pb-section {
+  padding-bottom: var(--spacing-xl);
+}
+
+.stamp-focus {
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  background-color: var(--color-bg);
+}
+
+.stamp-focus-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stamp-large-image-wrapper {
+  margin-bottom: var(--spacing-lg);
+  padding: 16px;
+  background: white;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 450px;
+}
+
+.stamp-large-image {
+  width: 100%;
+  height: auto;
+  border: 2px dashed #E5E0D5;
+}
+
+.stamp-number-large {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  display: block;
+}
+
+.d-block {
+  display: block;
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.stamp-title-large {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.stamp-short-intro {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.stamp-content-layout {
+  display: flex;
+  gap: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+}
+
+.border-top {
+  border-top: 1px solid var(--color-border);
+}
+
+.stamp-sidebar {
+  flex: 1;
+  max-width: 300px;
+}
+
+.quick-facts {
+  position: sticky;
+  top: 100px;
+}
+
+.facts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.facts-list li {
+  margin-bottom: 1.5rem;
+}
+
+.fact-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fact-value {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.stamp-story {
+  flex: 2;
+  max-width: 750px;
+}
+
+.story-main-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.editorial-content .story-section {
+  margin-bottom: var(--spacing-md);
+}
+
+.editorial-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.editorial-content p {
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.story-section h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.story-text p {
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.story-hero-image {
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  animation: fadeUp 1s ease-out both;
+}
+
+.story-inline-images {
+  margin: var(--spacing-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.inline-image-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.inline-image-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-title {
+  margin-bottom: var(--spacing-md);
+  font-size: 2.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.gallery-item {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 992px) {
+  .stamp-detail-container {
+    flex-direction: column;
+  }
+  
+  .stamp-sidebar {
+    width: 100%;
+    position: static;
+    margin-bottom: var(--spacing-lg);
+    border-right: none;
+    padding-right: 0;
+  }
+  
+  .stamp-story {
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .main-stamp-image {
+    max-height: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
