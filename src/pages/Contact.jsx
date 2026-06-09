@@ -1,9 +1,9 @@
 import { Mail } from 'lucide-react';
 import './Contact.css';
-import useDocumentTitle from '../hooks/useDocumentTitle';
+import useSEO from '../hooks/useSEO';
 
 export default function Contact() {
-  useDocumentTitle('Contact');
+  useSEO({ title: 'Contact' });
   return (
     <div className="contact section">
       <div className="container contact-container">

@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import SeriesCard from '../components/SeriesCard';
 import { stampSeries } from '../data';
 import Scene3D from '../components/Scene3D';
-import useDocumentTitle from '../hooks/useDocumentTitle';
+import useSEO from '../hooks/useSEO';
 import './Home.css';
 
 export default function Home() {
-  useDocumentTitle('Trang Chủ');
+  useSEO({ title: 'Trang Chủ' });
   return (
     <div className="home">
       {/* Hero Section */}

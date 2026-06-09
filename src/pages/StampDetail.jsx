@@ -3,8 +3,9 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { stamps, stampSeries } from '../data';
 import StampCard from '../components/StampCard';
 import Lightbox from "yet-another-react-lightbox";
+import { ArrowLeft, Maximize2, Share2, Info } from 'lucide-react';
 import "yet-another-react-lightbox/styles.css";
-import useDocumentTitle from '../hooks/useDocumentTitle';
+import useSEO from '../hooks/useSEO';
 import './StampDetail.css';
 import '../pages/About.css'; // Re-use the editorial drop-cap and divider
 
@@ -14,7 +15,11 @@ export default function StampDetail() {
   const stamp = stamps.find(s => s.id === id);
   const [index, setIndex] = useState(-1);
   
-  useDocumentTitle(stamp ? stamp.title : 'Stamp Not Found');
+  useSEO({
+    title: stamp ? stamp.title : 'Stamp Not Found',
+    description: stamp ? stamp.description : '',
+    image: stamp ? stamp.imageUrl : ''
+  });
 
   if (!stamp) {
     return (

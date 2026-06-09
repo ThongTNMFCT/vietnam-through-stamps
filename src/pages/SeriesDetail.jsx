@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { stampSeries, stamps } from '../data';
 import StampCard from '../components/StampCard';
 import { ArrowLeft } from 'lucide-react';
-import useDocumentTitle from '../hooks/useDocumentTitle';
+import useSEO from '../hooks/useSEO';
 import './SeriesDetail.css';
 
 export default function SeriesDetail() {
@@ -12,7 +12,11 @@ export default function SeriesDetail() {
   
   const series = stampSeries.find(s => s.id === id);
   
-  useDocumentTitle(series ? series.name : 'Series Not Found');
+  useSEO({
+    title: series ? series.name : 'Series Not Found',
+    description: series ? series.description : '',
+    image: series ? series.coverImage : ''
+  });
   
   // Scroll to top when loading
   useEffect(() => {

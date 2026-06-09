@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import StampCard from '../components/StampCard';
 import { stamps } from '../data';
 import { Search } from 'lucide-react';
-import useDocumentTitle from '../hooks/useDocumentTitle';
+import useSEO from '../hooks/useSEO';
 import './Collection.css';
 
 export default function Collection() {
-  useDocumentTitle('The Collection');
+  useSEO({ title: 'The Collection' });
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredStamps, setFilteredStamps] = useState(stamps);
 
