@@ -1,77 +1,44 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import StampCard from '../components/StampCard';
-import { stamps, stampSeries } from '../data';
+import { stamps } from '../data';
 import { Search } from 'lucide-react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import './Collection.css';
 
 export default function Collection() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const initialSeries = searchParams.get('series') || 'all';
-  
+  useDocumentTitle('The Collection');
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSeries, setSelectedSeries] = useState(initialSeries);
   const [filteredStamps, setFilteredStamps] = useState(stamps);
 
   useEffect(() => {
     let result = stamps;
     
-    if (selectedSeries !== 'all') {
-      result = result.filter(stamp => stamp.seriesId === selectedSeries);
-    }
-    
     if (searchTerm) {
       const lowercasedTerm = searchTerm.toLowerCase();
       result = result.filter(stamp => 
         stamp.title.toLowerCase().includes(lowercasedTerm) || 
-        stamp.number.includes(lowercasedTerm)
+        stamp.number.includes(lowercasedTerm) ||
+        stamp.seriesName.toLowerCase().includes(lowercasedTerm)
       );
     }
     
     setFilteredStamps(result);
-  }, [searchTerm, selectedSeries]);
-
-  const handleSeriesChange = (e) => {
-    const value = e.target.value;
-    setSelectedSeries(value);
-    
-    if (value === 'all') {
-      searchParams.delete('series');
-    } else {
-      searchParams.set('series', value);
-    }
-    setSearchParams(searchParams);
-  };
+  }, [searchTerm]);
 
   return (
     <div className="collection section">
       <div className="container">
         <h1 className="text-center font-heading text-primary page-title">The Collection</h1>
         
-        <div className="filters-container">
-          <div className="search-box">
-            <Search className="search-icon" size={20} />
-            <input 
-              type="text" 
-              placeholder="Search by keyword or number..." 
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
-          </div>
-          
-          <div className="filter-box">
-            <select 
-              value={selectedSeries} 
-              onChange={handleSeriesChange}
-              className="filter-select font-heading"
-            >
-              <option value="all">All Series</option>
-              {stampSeries.map(series => (
-                <option key={series.id} value={series.id}>{series.name}</option>
-              ))}
-            </select>
-          </div>
+        <div className="search-box" style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <Search className="search-icon" size={20} />
+          <input 
+            type="text" 
+            placeholder="Search by keyword, number, or series..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
         </div>
 
         <div className="results-count text-muted">
@@ -88,7 +55,7 @@ export default function Collection() {
           <div className="no-results text-center">
             <h3 className="font-heading text-primary">No stamps found</h3>
             <p className="text-muted">Try adjusting your search or filters.</p>
-            <button className="btn mt-md" onClick={() => {setSearchTerm(''); setSelectedSeries('all');}}>Clear Filters</button>
+            <button className="btn mt-md" onClick={() => setSearchTerm('')}>Clear Search</button>
           </div>
         )}
       </div>

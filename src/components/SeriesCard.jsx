@@ -8,7 +8,7 @@ export default function SeriesCard({ series }) {
     <>
       <div className="series-card-image">
         {series.coverImage ? (
-          <img src={series.coverImage} alt={series.name} className={!isAvailable ? 'grayscale' : ''} />
+          <img src={series.coverImage} alt={series.name} className={`series-image ${!isAvailable ? 'grayscale' : ''}`} />
         ) : (
           <div className="image-placeholder">Series Cover</div>
         )}
@@ -33,7 +33,7 @@ export default function SeriesCard({ series }) {
 
   if (isAvailable) {
     return (
-      <Link to={`/collection?series=${series.id}`} className="card series-card">
+      <Link to={`/series/${series.id}`} className="card series-card">
         {content}
       </Link>
     );

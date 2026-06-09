@@ -1,5 +1,7 @@
 .navbar {
-  background-color: var(--color-bg);
+  background-color: rgba(248, 245, 238, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   height: 120px;
   display: flex;
   justify-content: center;
@@ -8,7 +10,8 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(229, 224, 213, 0.5); /* Subtle border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 }
 
 .navbar-container {
@@ -60,18 +63,26 @@
   color: var(--color-primary);
 }
 
-.nav-links.active {
-  color: var(--color-primary);
-}
-
-.nav-links.active::after {
+.nav-links::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 1.5rem;
-  right: 1.5rem;
-  height: 3px;
-  background-color: var(--color-primary);
+  bottom: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary); /* Golden underline */
+  transition: width 0.3s ease;
+}
+
+.nav-links:hover::after,
+.nav-links.active::after {
+  width: calc(100% - 3rem); /* Expand to text width */
+}
+
+.nav-links.active {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .menu-icon {

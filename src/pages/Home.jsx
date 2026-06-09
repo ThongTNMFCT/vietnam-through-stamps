@@ -1,28 +1,30 @@
 import { Link } from 'react-router-dom';
 import SeriesCard from '../components/SeriesCard';
 import { stampSeries } from '../data';
+import Scene3D from '../components/Scene3D';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import './Home.css';
 
 export default function Home() {
+  useDocumentTitle('Trang Chủ');
   return (
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
-        <div className="container hero-content">
-          <div className="hero-stamp-wrapper">
-             {/* Centerpiece: A large beautifully displayed postage stamp. */}
-             <div className="hero-stamp">
-               <img src="/images/stamps/001-aodai.jpg" alt="Vietnam Through Stamps" />
-             </div>
+        <div className="container hero-layout">
+          <div className="hero-text-content">
+            <h1 className="hero-title">Vietnam Through Stamps</h1>
+            <p className="hero-subtitle">
+              Explore the stories, traditions, heritage, and everyday beauty of Vietnam through illustrated stamps.
+            </p>
+            <div className="hero-buttons">
+              <Link to="/collection" className="btn hero-btn">Explore Collection</Link>
+              <Link to="/about" className="btn btn-secondary hero-btn">About The Project</Link>
+            </div>
           </div>
           
-          <h1 className="hero-title">Vietnam Through Stamps</h1>
-          <p className="hero-subtitle">
-            Explore the stories, traditions, heritage, and everyday beauty of Vietnam through illustrated stamps.
-          </p>
-          <div className="hero-buttons">
-            <Link to="/collection" className="btn hero-btn">Explore Collection</Link>
-            <Link to="/about" className="btn btn-secondary hero-btn">About The Project</Link>
+          <div className="hero-3d-wrapper">
+            <Scene3D />
           </div>
         </div>
       </section>

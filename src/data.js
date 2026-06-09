@@ -7,6 +7,27 @@ export const stampSeries = [
     status: 'Available',
     stampCount: 1,
     coverImage: 'https://res.cloudinary.com/de1osc5cg/image/upload/v1780935484/bia-01_bjbyz7.png',
+    themeColor: '#C8102E', // Vietnam Red
+    longDescriptionHtml: `
+      <h2>The Icons That Define A Nation</h2>
+      <p>Every country has symbols that tell its story.</p>
+      <p>Some are found in monuments and historic landmarks. Others live in traditions, objects, clothing, music, and the everyday lives of its people. These symbols become more than cultural artifacts—they become a part of a nation's identity.</p>
+      <p>Vietnam is no exception.</p>
+      <p>For generations, certain images have come to represent the spirit of Vietnam both at home and abroad. The graceful Áo Dài, the iconic conical hat, the blooming lotus flower, the ancient Đông Sơn drum, and the unique sound of the Đàn Bầu are more than recognizable cultural elements. Together, they reflect the history, creativity, resilience, and values of the Vietnamese people.</p>
+      <p><strong>Symbols of Vietnam</strong> is the first series in the <em>Vietnam Through Stamps</em> collection. It serves as an introduction to the country through five iconic symbols that have shaped the image of Vietnam over time. Each stamp in this series highlights an element that is instantly associated with Vietnamese culture and heritage.</p>
+      <p>Through simple yet meaningful illustrations, the series invites viewers to discover the stories behind these symbols and understand why they continue to hold an important place in the hearts of millions of Vietnamese people.</p>
+      <p>This series includes:</p>
+      <ul>
+        <li><strong>001 — Vietnamese Áo Dài</strong></li>
+        <li><strong>002 — Vietnamese Conical Hat (Nón Lá)</strong></li>
+        <li><strong>003 — Lotus Flower</strong></li>
+        <li><strong>004 — Đông Sơn Drum</strong></li>
+        <li><strong>005 — Đàn Bầu</strong></li>
+      </ul>
+      <p>Together, these five stamps form a visual introduction to Vietnam—a country where tradition and modernity coexist, where cultural heritage continues to inspire contemporary life, and where every symbol carries a story worth telling.</p>
+      <p>As the opening chapter of <em>Vietnam Through Stamps</em>, <strong>Symbols of Vietnam</strong> celebrates the images that define a nation and offers a gateway to the many stories that will follow throughout the collection.</p>
+      <p><strong>Discover Vietnam, One Stamp at a Time.</strong></p>
+    `
   },
   {
     id: 'living-heritage',
@@ -16,6 +37,7 @@ export const stampSeries = [
     status: 'Coming Soon',
     stampCount: 0,
     coverImage: 'https://res.cloudinary.com/de1osc5cg/image/upload/v1780935575/bia-02_f9bwui.png',
+    themeColor: '#2F4F4F', // Dark Slate Gray (Heritage)
   },
   {
     id: 'sacred-vietnam',
@@ -25,6 +47,7 @@ export const stampSeries = [
     status: 'Coming Soon',
     stampCount: 0,
     coverImage: 'https://res.cloudinary.com/de1osc5cg/image/upload/v1780935861/0bc559e9-caf6-4ece-94f0-d1f59efd84ee_n4pd5u.png',
+    themeColor: '#8B4513', // Saddle Brown (Sacred wood/incense)
   },
   {
     id: 'festivals-of-vietnam',
@@ -34,6 +57,7 @@ export const stampSeries = [
     status: 'Coming Soon',
     stampCount: 0,
     coverImage: 'https://res.cloudinary.com/de1osc5cg/image/upload/v1780935862/cbce9449-ef3d-44fb-af42-db72f3c24230_tcqooe.png',
+    themeColor: '#D4A017', // Golden (Festivals/Celebrations)
   },
   {
     id: 'vietnamese-cuisine',
@@ -43,6 +67,7 @@ export const stampSeries = [
     status: 'Coming Soon',
     stampCount: 0,
     coverImage: 'https://res.cloudinary.com/de1osc5cg/image/upload/v1780935955/d3f5e457-aa29-4e10-a778-9ec819199b92_bhqiup.png',
+    themeColor: '#E2725B', // Terracotta (Cuisine/Clay pots)
   },
   {
     id: 'traditional-crafts',
@@ -52,6 +77,7 @@ export const stampSeries = [
     status: 'Coming Soon',
     stampCount: 0,
     coverImage: 'https://res.cloudinary.com/de1osc5cg/image/upload/v1780936034/cccc0bbc-53ef-45d5-877f-d500ed628706_o2axzv.png',
+    themeColor: '#6B8E23', // Olive Drab (Bamboo/Crafts)
   },
   {
     id: 'wonders-of-vietnam',
@@ -61,6 +87,7 @@ export const stampSeries = [
     status: 'Coming Soon',
     stampCount: 0,
     coverImage: 'https://res.cloudinary.com/de1osc5cg/image/upload/v1780936934/e8698ad2-162d-48e6-b9bd-3036a116487d_mbuvhl.png',
+    themeColor: '#4682B4', // Steel Blue (Water/Sky/Wonders)
   },
   {
     id: 'daily-life',
@@ -70,6 +97,7 @@ export const stampSeries = [
     status: 'Coming Soon',
     stampCount: 0,
     coverImage: 'https://res.cloudinary.com/de1osc5cg/image/upload/v1780936803/60e5192b-672b-4017-964c-e265906e2318_xbixrh.png',
+    themeColor: '#CD853F', // Peru (Earth/Daily Life)
   }
 ];
 

@@ -4,14 +4,32 @@
 }
 
 .contact-card {
-  padding: var(--spacing-lg) var(--spacing-md);
+  padding: clamp(2rem, 5vw, 4rem);
   margin-top: var(--spacing-md);
+  background: white;
+  border: 2px dashed rgba(212, 160, 23, 0.4); /* Golden dashed border like an envelope */
+  border-radius: var(--radius-md);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212, 160, 23, 0.15); /* Inner thin border */
+  border-radius: var(--radius-sm);
+  pointer-events: none;
 }
 
 .contact-intro {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.15rem;
+  line-height: 1.8;
   margin-bottom: var(--spacing-lg);
+  font-style: italic;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-methods {

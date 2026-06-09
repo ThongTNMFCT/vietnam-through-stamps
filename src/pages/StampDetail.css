@@ -15,12 +15,19 @@
 
 .stamp-large-image-wrapper {
   margin-bottom: var(--spacing-lg);
-  padding: 16px;
+  padding: 1.5rem;
   background: white;
   border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Stronger shadow for floating effect */
+  border-radius: var(--radius-sm);
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
+  transform: rotate(-1deg); /* Slight editorial tilt */
+  transition: transform 0.5s ease;
+}
+
+.stamp-large-image-wrapper:hover {
+  transform: rotate(0deg) scale(1.02);
 }
 
 .stamp-large-image {
@@ -69,12 +76,18 @@
 
 .stamp-sidebar {
   flex: 1;
-  max-width: 300px;
+  max-width: 320px;
 }
 
-.quick-facts {
+.quick-facts-card {
   position: sticky;
   top: 100px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 160, 23, 0.3); /* Golden border */
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .facts-list {
@@ -83,20 +96,23 @@
 }
 
 .facts-list li {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .fact-label {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  color: var(--color-text-light);
 }
 
 .fact-value {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--color-primary);
-  display: block;
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
+  font-weight: 500;
 }
 
 .stamp-story {
@@ -129,15 +145,29 @@
 
 .story-section h3 {
   font-size: clamp(1.5rem, 3vw, 2rem);
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-sm);
+  color: var(--color-secondary);
 }
 
 .story-text p {
   font-size: clamp(1.1rem, 2vw, 1.2rem);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  color: #333;
+  line-height: 1.9;
+  margin-bottom: 1.8rem;
+  color: var(--color-text);
+  text-align: justify;
+}
+
+/* Magazine Drop Cap effect specifically for the first paragraph of the first section in Stamp Detail */
+.story-text .story-section:first-child p:first-of-type::first-letter {
+  float: left;
+  font-size: 5rem;
+  line-height: 0.85;
+  padding-top: 6px;
+  padding-right: 10px;
+  padding-left: 2px;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
 }
 
 .story-hero-image {

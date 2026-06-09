@@ -1,15 +1,20 @@
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { stamps } from '../data';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { stamps, stampSeries } from '../data';
 import StampCard from '../components/StampCard';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import './StampDetail.css';
+import '../pages/About.css'; // Re-use the editorial drop-cap and divider
 
 export default function StampDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const stamp = stamps.find(s => s.id === id);
   const [index, setIndex] = useState(-1);
+  
+  useDocumentTitle(stamp ? stamp.title : 'Stamp Not Found');
 
   if (!stamp) {
     return (
@@ -36,25 +41,28 @@ export default function StampDetail() {
               <div className="stamp-large-placeholder">Illustration</div>
             )}
           </div>
-          <div className="stamp-header text-center">
+          <div className="stamp-header text-center mt-md">
             <span className="stamp-number-large text-secondary font-heading">{stamp.number}</span>
-            <span className="stamp-series-link text-muted d-block mb-sm">{stamp.seriesName}</span>
+            <span className="stamp-series-link text-muted d-block mb-sm" style={{ letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>{stamp.seriesName}</span>
             <h1 className="stamp-title-large text-primary">{stamp.title}</h1>
             <p className="stamp-short-intro text-muted">{stamp.shortIntro}</p>
           </div>
         </div>
       </section>
 
+      <div className="decorative-divider"></div>
+
       {/* Main Content: Story and Quick Facts */}
       <section className="container section stamp-content-layout border-top">
         <aside className="stamp-sidebar">
-          <div className="quick-facts">
+          <div className="quick-facts-card">
+            <h3 className="font-heading text-secondary text-center" style={{marginBottom: '1.5rem', borderBottom: '1px dashed var(--color-border)', paddingBottom: '1rem'}}>Quick Facts</h3>
             <ul className="facts-list">
-              <li><span className="fact-label text-muted">Category:</span> <br/><span className="fact-value font-heading">{stamp.quickFacts.Category}</span></li>
-              <li><span className="fact-label text-muted">Country:</span> <br/><span className="fact-value font-heading">{stamp.quickFacts.Country}</span></li>
-              <li><span className="fact-label text-muted">Cultural Significance:</span> <br/><span className="fact-value font-heading">{stamp.quickFacts.CulturalSignificance}</span></li>
-              <li><span className="fact-label text-muted">Period:</span> <br/><span className="fact-value font-heading">{stamp.quickFacts.Period}</span></li>
-              <li><span className="fact-label text-muted">Used For:</span> <br/><span className="fact-value font-heading">{stamp.quickFacts.UsedFor}</span></li>
+              <li><span className="fact-label text-muted">Category</span> <span className="fact-value font-heading">{stamp.quickFacts.Category}</span></li>
+              <li><span className="fact-label text-muted">Country</span> <span className="fact-value font-heading">{stamp.quickFacts.Country}</span></li>
+              <li><span className="fact-label text-muted">Significance</span> <span className="fact-value font-heading">{stamp.quickFacts.CulturalSignificance}</span></li>
+              <li><span className="fact-label text-muted">Period</span> <span className="fact-value font-heading">{stamp.quickFacts.Period}</span></li>
+              <li><span className="fact-label text-muted">Used For</span> <span className="fact-value font-heading">{stamp.quickFacts.UsedFor}</span></li>
             </ul>
           </div>
         </aside>
@@ -88,6 +96,8 @@ export default function StampDetail() {
               </div>
             ))}
           </div>
+          
+          <div className="decorative-divider" style={{ marginTop: '4rem' }}></div>
         </div>
       </section>
 
